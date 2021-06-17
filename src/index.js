@@ -10,7 +10,7 @@ app.use(morgan('dev'));
 
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
-app.use(cors({ origin: '*' }));
+app.use(cors());
 
 app.use('/boss', require('./routes/bossRoute'));
 app.use('/employee', require('./routes/employeeRoute'));

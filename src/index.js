@@ -13,8 +13,7 @@ app.use(bodyparser.json());
 app.use(express.json());
 
 app.use(cors({ origin: '*' }));
-
-app.use('/boss', require('./routes/bossRoute'));
+app.use('/user', require('./routes/userRoute'));
 app.use('/employee', require('./routes/employeeRoute'));
 
 app.listen(app.get('port'), () => {

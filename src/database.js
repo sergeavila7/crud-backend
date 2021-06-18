@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 // URI = 'mongodb://localhost/crud';
-URI = 'mongodb+srv://serge_avila7:Zerokoficd95@cluster0.hky6k.mongodb.net/Crud';
+URI =
+  'mongodb+srv://serge_avila7:Zerokoficd95@cluster0.ilqyp.mongodb.net/crud?retryWrites=true&w=majority';
 mongoose
   .connect(URI, {
     useNewUrlParser: true,

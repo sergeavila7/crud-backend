@@ -12,7 +12,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(express.json());
 
-app.use(cors({ origen: '*' }));
+app.use(cors({ origin: '*' }));
 app.use('/user', require('./routes/userRoute'));
 app.use('/employee', require('./routes/employeeRoute'));
 

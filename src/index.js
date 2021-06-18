@@ -13,8 +13,14 @@ app.use(bodyparser.json());
 app.use(express.json());
 
 app.use(cors({ origin: '*' }));
-app.use((req, res, next) => {
+app.all('*', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Methods',
+    'PUT, GET, POST, DELETE, PATCH, OPTIONS HEAD'
+  );
+  res.header('Access-Control-Allow-Headers', '*');
+  res.header('Access-Control-Allow-Credentials', true);
   next();
 });
 app.use('/user', require('./routes/userRoute'));

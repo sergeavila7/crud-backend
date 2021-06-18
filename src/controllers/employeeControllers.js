@@ -3,16 +3,16 @@ const EmployeeCtrl = {};
 const Employee = require('../models/EmployeeModel');
 
 EmployeeCtrl.add = async (req, res) => {
-  const { name, lastname, identification, role, tcontract, boss } = req.body;
-  const NewEmployee = new Employee({
+  const { name, lastname, identification, role, tcontract, user } = req.body;
+  const employee = new Employee({
     name,
     lastname,
     identification,
     role,
     tcontract,
-    boss,
+    user,
   });
-  const response = await NewEmployee.save();
+  const response = await employee.save();
   res.json({
     message: 'Empleado creado',
     response,
@@ -29,9 +29,9 @@ EmployeeCtrl.show = async (req, res) => {
   res.json(response);
 };
 
-EmployeeCtrl.showByTheBoss = async (req, res) => {
+EmployeeCtrl.showByTheUser = async (req, res) => {
   const id = req.params.id;
-  const response = await Employee.find({ boss: id });
+  const response = await Employee.find({ user: id });
   res.json(response);
 };
 
@@ -52,9 +52,10 @@ EmployeeCtrl.update = async (req, res) => {
 };
 
 EmployeeCtrl.searchEmployee = async (req, res) => {
-  const {name,id} = req.params;
+  const { name, id } = req.params;
   const response = await Employee.find({
-    name: { $regex: '.*' + name + '.*' }, boss:id,
+    name: { $regex: '.*' + name + '.*' },
+    user: id,
   });
   res.json(response);
 };

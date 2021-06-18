@@ -1,6 +1,6 @@
 const EmployeeCtrl = {};
 
-const Employee = require('../models/EmployeeModel');
+const Employee = require('../models/employeeModel');
 
 EmployeeCtrl.add = async (req, res) => {
   const { name, lastname, identification, role, tcontract, user } = req.body;

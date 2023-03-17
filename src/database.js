@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // URI = 'mongodb://localhost/crud';
-URI = proccess.env.DB_URL;
+URI = process.env.DB_URL;
 mongoose
   .connect(URI, {
     useNewUrlParser: true,

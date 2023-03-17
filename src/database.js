@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // URI = 'mongodb://localhost/crud';
 URI = process.env.DB_URL;
 mongoose
-  .connect(URI, {
+  .connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
